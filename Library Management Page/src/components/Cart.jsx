@@ -12,7 +12,7 @@ const Cart = ({ cartItems, removeFromCart, loggedIn, cartLoading }) => {
       try {
         const email = JSON.parse(localStorage.getItem("user")).email;
         const formData = { email, bookIds };
-        const response = await fetch("http://localhost:4000/books/rent", {
+        const response = await fetch("https://task2devrev.onrender.com/books/rent", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

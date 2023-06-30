@@ -20,7 +20,7 @@ const BooksList = ({ loggedIn }) => {
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/books`);
+        const response = await fetch(`https://task2devrev.onrender.com/books`);
         const data = await response.json();
         setAllBooks(data);
         countCopies(data); // Pass the data to the countCopies function
@@ -54,7 +54,7 @@ const BooksList = ({ loggedIn }) => {
       try {
         setLoading(true);
         if (page <= 5) {
-          const response = await fetch(`http://localhost:4000/books/${page}`);
+          const response = await fetch(`https://task2devrev.onrender.com/books/${page}`);
           const data = await response.json();
           setBooks((prevBooks) => [...prevBooks, ...data]);
         }

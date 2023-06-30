@@ -8,7 +8,7 @@ const RentedBooks = ({ loggedIn }) => {
       const email = JSON.parse(localStorage.getItem("user")).email;
       const formData = { email };
       try {
-        const response = await fetch(`http://localhost:4000/getuser`, {
+        const response = await fetch(`https://task2devrev.onrender.com/getuser`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

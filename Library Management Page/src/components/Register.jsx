@@ -11,7 +11,7 @@ const Register = () => {
     e.preventDefault();
     const formData = { name, email, password, mobileNumber };
     try {
-      const response = await fetch("http://localhost:4000/users", {
+      const response = await fetch("https://task2devrev.onrender.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

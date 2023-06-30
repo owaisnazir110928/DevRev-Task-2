@@ -10,7 +10,7 @@ const Login = ({ setLoggedIn }) => {
     e.preventDefault();
     const formData = { email, password };
     try {
-      const response = await fetch("http://localhost:4000/login", {
+      const response = await fetch("https://task2devrev.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
