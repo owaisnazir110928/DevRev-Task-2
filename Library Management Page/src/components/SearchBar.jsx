@@ -12,11 +12,12 @@ const SearchBar = ({
     <div className="search-bar">
       <input
         type="text"
-        placeholder="Search books..."
         value={searchQuery}
+        placeholder=" "
         onChange={handleSearchChange}
         onKeyDown={handleKeyPress}
       />
+      <label>Search Here</label>
       {showSuggestions && (
         <ul className="search-suggestions">
           {searchResults.map((book) => (
