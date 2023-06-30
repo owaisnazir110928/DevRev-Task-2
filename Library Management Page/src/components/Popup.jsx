@@ -3,9 +3,6 @@ function Popup({ onClose, children }) {
   return (
     <div className="popup">
       <div className="popup-content">
-        <button className="close-button" onClick={onClose}>
-          Close
-        </button>
         <h2>DEVREV Round 2</h2>
         <div className="features-summary">
           <p>
@@ -62,6 +59,9 @@ function Popup({ onClose, children }) {
             password:Hello
           </p>
         </div>
+        <button className="close-button" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );
