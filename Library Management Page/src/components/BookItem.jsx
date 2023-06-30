@@ -27,9 +27,19 @@ const BookItem = ({ book, addToCart, removeFromCart, loggedIn }) => {
           <span>Number of Copies:</span> {book.numOfAvailableCopies}
         </p>
         {book.numOfAvailableCopies > 0 ? (
-          <button className="book-list__button" onClick={() => addToCart(book)}>
-            {loggedIn && <span>Add to Cart</span>}
-            {!loggedIn && <span>Login First</span>}
+          <button className="book-list__button">
+            {loggedIn && (
+              <span onClick={() => addToCart(book)}>Add to Cart</span>
+            )}
+            {!loggedIn && (
+              <span
+                onClick={() => {
+                  window.location.href = "/login";
+                }}
+              >
+                Login First
+              </span>
+            )}
           </button>
         ) : (
           <button className="book-list__button" disabled>
