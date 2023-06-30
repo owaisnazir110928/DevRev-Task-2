@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./AuthForm.css";
 
@@ -6,10 +7,13 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
     const formData = { name, email, password, mobileNumber };
+    setIsLoading(true); // Set loading state to true
+
     try {
       const response = await fetch("https://task2devrev.onrender.com/users", {
         method: "POST",
@@ -19,16 +23,20 @@ const Register = () => {
         body: JSON.stringify(formData),
       });
       const data = await response.json();
+
       if (data.msg === "saved") {
         alert("User Registered You Can Now Log In");
-        window.location.href = "/login";
+        window.location.href = "/#/login";
       } else if (data.error) {
         alert("User Already Present");
-        window.location.href = "/login";
+        window.location.href = "/#/login";
       }
+
       console.log(data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -61,7 +69,9 @@ const Register = () => {
             value={mobileNumber}
             onChange={(e) => setMobileNumber(e.target.value)}
           />
-          <button type="submit">Signup</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "Signing up..." : "Signup"}
+          </button>
         </form>
         <div className="auth-form-footer">
           <p>Signup with:</p>

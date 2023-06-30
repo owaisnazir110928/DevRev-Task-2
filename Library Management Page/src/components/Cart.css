@@ -1,13 +1,13 @@
 .cart-container {
     position: fixed;
-    top: 94%;
+    top: 92%;
     right: 5px;
     z-index: 200;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
     width: 270px;
-    height: 40px;
+    height: 50px;
     background-color: #fff;
     overflow: hidden;
 }
