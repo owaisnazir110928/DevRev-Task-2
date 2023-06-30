@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
-require("dotenv").config({ path: ".env.local" });
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 4000;
