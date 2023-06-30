@@ -54,7 +54,9 @@ const BooksList = ({ loggedIn }) => {
       try {
         setLoading(true);
         if (page <= 5) {
-          const response = await fetch(`https://task2devrev.onrender.com/books/${page}`);
+          const response = await fetch(
+            `https://task2devrev.onrender.com/books/${page}`
+          );
           const data = await response.json();
           setBooks((prevBooks) => [...prevBooks, ...data]);
         }
@@ -159,27 +161,29 @@ const BooksList = ({ loggedIn }) => {
           loggedIn={loggedIn}
           cartLoading={cartLoading}
         />
-        <div className="sort-search">
-          <SearchBar
-            searchQuery={searchQuery}
-            handleSearchChange={handleSearchChange}
-            handleSuggestionClick={handleSuggestionClick}
-            showSuggestions={showSuggestions}
-            searchResults={searchResults}
-            handleKeyPress={handleKeyPress}
-          />
-          <SortBooks handleSort={handleSort} />
-        </div>
-        <div className="count">
-          <p className="book-list__count">
-            Searched Books: <span>{searchResults.length}</span>
-          </p>
-          <p className="book-list__count">
-            Available Copies: <span>{availableBooks}</span>
-          </p>
-          <p className="book-list__count">
-            Total Book Count: <span>{allBooks.length}</span>
-          </p>
+        <div className="nav-below">
+          <div className="sort-search">
+            <SearchBar
+              searchQuery={searchQuery}
+              handleSearchChange={handleSearchChange}
+              handleSuggestionClick={handleSuggestionClick}
+              showSuggestions={showSuggestions}
+              searchResults={searchResults}
+              handleKeyPress={handleKeyPress}
+            />
+            <SortBooks handleSort={handleSort} />
+          </div>
+          <div className="count">
+            <p className="book-list__count">
+              Searched Books: <span>{searchResults.length}</span>
+            </p>
+            <p className="book-list__count">
+              Available Copies: <span>{availableBooks}</span>
+            </p>
+            <p className="book-list__count">
+              Total Book Count: <span>{allBooks.length}</span>
+            </p>
+          </div>
         </div>
         <ul className="book-list__items">
           {searchResults.map((book) => (
